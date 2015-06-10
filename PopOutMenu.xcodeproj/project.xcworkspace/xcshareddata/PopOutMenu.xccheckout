@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>D0CB143F-C363-4E88-9225-586EC7474CE9</string>
+	<key>IDESourceControlProjectName</key>
+	<string>PopOutMenu</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>D14E0DF6384628F945F1982EC8E02A91CDF1D5B9</key>
+		<string>https://github.com/anthonyprograms/AWPopOutMenu.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>PopOutMenu.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>D14E0DF6384628F945F1982EC8E02A91CDF1D5B9</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/anthonyprograms/AWPopOutMenu.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>D14E0DF6384628F945F1982EC8E02A91CDF1D5B9</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>D14E0DF6384628F945F1982EC8E02A91CDF1D5B9</string>
+			<key>IDESourceControlWCCName</key>
+			<string>AWPopOutMenu</string>
+		</dict>
+	</array>
+</dict>
+</plist>
