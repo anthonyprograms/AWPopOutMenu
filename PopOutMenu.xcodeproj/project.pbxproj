@@ -14,6 +14,7 @@
 		9283DE631B26ACC800E499A3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9283DE611B26ACC800E499A3 /* LaunchScreen.xib */; };
 		9283DE6F1B26ACC800E499A3 /* PopOutMenuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9283DE6E1B26ACC800E499A3 /* PopOutMenuTests.swift */; };
 		9283DE791B27F97100E499A3 /* AWPopOutMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9283DE781B27F97100E499A3 /* AWPopOutMenu.swift */; };
+		929FB7E61B2AC1A400B83BB1 /* BackgroundAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929FB7E51B2AC1A400B83BB1 /* BackgroundAnimation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		9283DE6D1B26ACC800E499A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9283DE6E1B26ACC800E499A3 /* PopOutMenuTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopOutMenuTests.swift; sourceTree = "<group>"; };
 		9283DE781B27F97100E499A3 /* AWPopOutMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AWPopOutMenu.swift; path = ../AWPopOutMenu.swift; sourceTree = "<group>"; };
+		929FB7E51B2AC1A400B83BB1 /* BackgroundAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BackgroundAnimation.swift; path = ../BackgroundAnimation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 				9283DE581B26ACC800E499A3 /* AppDelegate.swift */,
 				9283DE5A1B26ACC800E499A3 /* ViewController.swift */,
 				9283DE781B27F97100E499A3 /* AWPopOutMenu.swift */,
+				929FB7E51B2AC1A400B83BB1 /* BackgroundAnimation.swift */,
 				9283DE5C1B26ACC800E499A3 /* Main.storyboard */,
 				9283DE5F1B26ACC800E499A3 /* Images.xcassets */,
 				9283DE611B26ACC800E499A3 /* LaunchScreen.xib */,
@@ -215,6 +218,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				929FB7E61B2AC1A400B83BB1 /* BackgroundAnimation.swift in Sources */,
 				9283DE791B27F97100E499A3 /* AWPopOutMenu.swift in Sources */,
 				9283DE5B1B26ACC800E499A3 /* ViewController.swift in Sources */,
 				9283DE591B26ACC800E499A3 /* AppDelegate.swift in Sources */,

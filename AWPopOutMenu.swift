@@ -139,10 +139,10 @@ class AWPopOutMenu: UIView {
                 
                 self.mainMenuRotation(self.menuButton)
                 
-                self.leftMenuButton.center = CGPointMake(self.frame.size.width/2-60, self.frame.size.height/2)
-                self.rightMenuButton.center = CGPointMake(self.frame.size.width/2+60, self.frame.size.height/2)
-                self.outerLeftMenuButton.center = CGPointMake(self.frame.size.width/2-120, self.frame.size.height/2)
-                self.outerRightMenuButton.center = CGPointMake(self.frame.size.width/2+120, self.frame.size.height/2)
+                self.leftMenuButton.center = CGPointMake(self.frame.size.width/2-self.frame.size.height-self.menuButton.frame.size.width/5, self.frame.size.height/2)
+                self.rightMenuButton.center = CGPointMake(self.frame.size.width/2+self.frame.size.height+self.menuButton.frame.size.width/5, self.frame.size.height/2)
+                self.outerLeftMenuButton.center = CGPointMake(self.frame.size.width/2-2*(self.frame.size.height+self.menuButton.frame.size.width/5), self.frame.size.height/2)
+                self.outerRightMenuButton.center = CGPointMake(self.frame.size.width/2+2*(self.frame.size.height+self.menuButton.frame.size.width/5), self.frame.size.height/2)
                 
                 self.rotationAnimation(self.leftMenuButton)
                 self.rotationAnimation(self.rightMenuButton)
@@ -171,7 +171,9 @@ class AWPopOutMenu: UIView {
         else if (sender == outerRightMenuButton){
             NSLog("Outer Right Menu Button Pressed")
         }
+        
     }
+
     
     // MARK: Menu Activity Status
     
