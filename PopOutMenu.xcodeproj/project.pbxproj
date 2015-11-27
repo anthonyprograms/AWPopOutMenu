@@ -14,7 +14,6 @@
 		9283DE631B26ACC800E499A3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9283DE611B26ACC800E499A3 /* LaunchScreen.xib */; };
 		9283DE6F1B26ACC800E499A3 /* PopOutMenuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9283DE6E1B26ACC800E499A3 /* PopOutMenuTests.swift */; };
 		9283DE791B27F97100E499A3 /* AWPopOutMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9283DE781B27F97100E499A3 /* AWPopOutMenu.swift */; };
-		929FB7E61B2AC1A400B83BB1 /* BackgroundAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929FB7E51B2AC1A400B83BB1 /* BackgroundAnimation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +38,6 @@
 		9283DE6D1B26ACC800E499A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9283DE6E1B26ACC800E499A3 /* PopOutMenuTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopOutMenuTests.swift; sourceTree = "<group>"; };
 		9283DE781B27F97100E499A3 /* AWPopOutMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AWPopOutMenu.swift; path = ../AWPopOutMenu.swift; sourceTree = "<group>"; };
-		929FB7E51B2AC1A400B83BB1 /* BackgroundAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BackgroundAnimation.swift; path = ../BackgroundAnimation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,7 +82,6 @@
 				9283DE581B26ACC800E499A3 /* AppDelegate.swift */,
 				9283DE5A1B26ACC800E499A3 /* ViewController.swift */,
 				9283DE781B27F97100E499A3 /* AWPopOutMenu.swift */,
-				929FB7E51B2AC1A400B83BB1 /* BackgroundAnimation.swift */,
 				9283DE5C1B26ACC800E499A3 /* Main.storyboard */,
 				9283DE5F1B26ACC800E499A3 /* Images.xcassets */,
 				9283DE611B26ACC800E499A3 /* LaunchScreen.xib */,
@@ -162,7 +159,9 @@
 		9283DE4B1B26ACC800E499A3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0630;
+				LastSwiftMigration = 0710;
+				LastSwiftUpdateCheck = 0710;
+				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "Anthony Williams";
 				TargetAttributes = {
 					9283DE521B26ACC800E499A3 = {
@@ -218,7 +217,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				929FB7E61B2AC1A400B83BB1 /* BackgroundAnimation.swift in Sources */,
 				9283DE791B27F97100E499A3 /* AWPopOutMenu.swift in Sources */,
 				9283DE5B1B26ACC800E499A3 /* ViewController.swift in Sources */,
 				9283DE591B26ACC800E499A3 /* AppDelegate.swift in Sources */,
@@ -284,6 +282,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -352,6 +351,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = PopOutMenu/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "AW.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -362,6 +362,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = PopOutMenu/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "AW.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -380,6 +381,7 @@
 				);
 				INFOPLIST_FILE = PopOutMenuTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "AW.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PopOutMenu.app/PopOutMenu";
 			};
@@ -395,6 +397,7 @@
 				);
 				INFOPLIST_FILE = PopOutMenuTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "AW.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PopOutMenu.app/PopOutMenu";
 			};

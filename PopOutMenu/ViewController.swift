@@ -8,18 +8,33 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, AWPopOutMenuDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let background = BackgroundAnimation(frame: CGRectMake(0, 0, 0, 0))
-        self.view.addSubview(background)
-        
+                
         self.view.backgroundColor = UIColor.blackColor()
-        let menu = AWPopOutMenu(frame: CGRectMake(0, self.view.frame.size.height/2, 50, 50))
-        menu.customizeView(UIColor.blackColor(), backgroundColor: UIColor.greenColor(), borderWith: 1.0)
+        let menu = AWPopOutMenu()
+        menu.setCenterPosition(CGPoint(x: self.view.frame.size.width/2, y: self.view.frame.size.height/2))
+        menu.customizeView(UIColor.whiteColor(), backgroundColor: UIColor(red: 25/255, green: 209/255, blue: 163/255, alpha: 1), borderWith: 0.6)
+        menu.delegate = self
         self.view.addSubview(menu)
+    }
+    
+    func buttonOneAction() {
+        print("Button One Action")
+    }
+    
+    func buttonTwoAction() {
+        print("Button Two Action")
+    }
+    
+    func buttonThreeAction() {
+        print("Button Three Action")
+    }
+    
+    func buttonFourAction() {
+        print("Button Four Action")
     }
 }
 

@@ -8,7 +8,16 @@
 
 import UIKit
 
-class AWPopOutMenu: UIView {
+@objc protocol AWPopOutMenuDelegate {
+    optional func buttonOneAction()
+    optional func buttonTwoAction()
+    optional func buttonThreeAction()
+    optional func buttonFourAction()
+}
+
+class AWPopOutMenu: UIView {    
+    // Set up delegate
+    var delegate : AWPopOutMenuDelegate?
     
     // Defaults
     var defaultBorderColor = UIColor.blackColor().CGColor
@@ -27,16 +36,18 @@ class AWPopOutMenu: UIView {
     
     // Variable to determine the size of the screen
     let screenSize: CGRect = UIScreen.mainScreen().bounds
-
+    
+    var centerPosition: CGPoint!
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         // X-coordinate of frame is ignored and centers the menu in the middle of the screen, keeping the y-coordinate
-        self.center = CGPointMake(screenSize.width/2, self.frame.origin.y)
+        self.frame.size = CGSizeMake(screenSize.height/12, screenSize.height/12)
         self.layer.cornerRadius = self.frame.size.height/2
         self.layer.masksToBounds = true
         
-        // Setup default colors in case they don't customize the view
+        // Setup default colors
         self.layer.borderColor = defaultBorderColor
         self.layer.borderWidth = defaultBorderWidth
         self.backgroundColor = defaultBackgroundColor
@@ -45,8 +56,13 @@ class AWPopOutMenu: UIView {
         setupButtonsOnView()
     }
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         fatalError("This class does not support NSCoding")
+    }
+    
+    func setCenterPosition(position: CGPoint) {
+        centerPosition = position
+        self.center = position
     }
     
     // MARK: Customize view and edit button image methods
@@ -58,64 +74,86 @@ class AWPopOutMenu: UIView {
     }
     
     func setMainButtonImage(image: UIImage){
-        menuButton.setImage(image, forState: .Normal)
+        menuButton.setBackgroundImage(image, forState: .Normal)
     }
     
     func setLeftButtonImage(image: UIImage){
-        leftMenuButton.setImage(image, forState: .Normal)
+        leftMenuButton.setBackgroundImage(image, forState: .Normal)
     }
     
     func setRightButtonImage(image: UIImage){
-        rightMenuButton.setImage(image, forState: .Normal)
+        rightMenuButton.setBackgroundImage(image, forState: .Normal)
     }
     
     func setOuterLeftButtonImage(image: UIImage){
-        outerLeftMenuButton.setImage(image, forState: .Normal)
+        outerLeftMenuButton.setBackgroundImage(image, forState: .Normal)
     }
     
     func setOuterRightButtonImage(image: UIImage){
-        outerRightMenuButton.setImage(image, forState: .Normal)
+        outerRightMenuButton.setBackgroundImage(image, forState: .Normal)
     }
 
     // MARK: Setup Buttons
     
     func setupButtonsOnView(){
         menuPressed = false;
+        
+        let buttonSize = 4*self.frame.size.height/7
 
         // Start buttons below menu button and extend them out to their spots
-        leftMenuButton.frame = CGRectMake(0, 0, self.frame.origin.y, self.frame.size.height)
+        leftMenuButton.frame = CGRectMake(0, 0, buttonSize, buttonSize)
         leftMenuButton.center = CGPointMake(self.frame.size.width/2, self.frame.size.height/2)
-        leftMenuButton.setImage(UIImage(named: "Businessman Filled"), forState: .Normal)
-        leftMenuButton.addTarget(self, action: "buttonsPressed:", forControlEvents: UIControlEvents.TouchUpInside)
+        leftMenuButton.setBackgroundImage(UIImage(named: "Businessman Filled"), forState: .Normal)
+        leftMenuButton.addTarget(self, action: "buttonsPressed:", forControlEvents: .TouchUpInside)
         leftMenuButton.hidden = true
         self.addSubview(leftMenuButton)
         
-        rightMenuButton.frame = CGRectMake(0, 0, self.frame.size.height, self.frame.size.height)
+        rightMenuButton.frame = CGRectMake(0, 0, buttonSize, buttonSize)
         rightMenuButton.center = CGPointMake(self.frame.size.width/2, self.frame.size.height/2)
-        rightMenuButton.setImage(UIImage(named: "Horse"), forState: .Normal)
-        rightMenuButton.addTarget(self, action: "buttonsPressed:", forControlEvents: UIControlEvents.TouchUpInside)
+        rightMenuButton.setBackgroundImage(UIImage(named: "Horse"), forState: .Normal)
+        rightMenuButton.addTarget(self, action: "buttonsPressed:", forControlEvents: .TouchUpInside)
         rightMenuButton.hidden = true
         self.addSubview(rightMenuButton)
         
-        outerLeftMenuButton.frame = CGRectMake(0, 0, self.frame.size.height, self.frame.size.height)
+        outerLeftMenuButton.frame = CGRectMake(0, 0, buttonSize, buttonSize)
         outerLeftMenuButton.center = CGPointMake(self.frame.size.width/2, self.frame.size.height/2)
-        outerLeftMenuButton.setImage(UIImage(named: "Mac Client"), forState: .Normal)
-        outerLeftMenuButton.addTarget(self, action: "buttonsPressed:", forControlEvents: UIControlEvents.TouchUpInside)
+        outerLeftMenuButton.setBackgroundImage(UIImage(named: "Mac Client"), forState: .Normal)
+        outerLeftMenuButton.addTarget(self, action: "buttonsPressed:", forControlEvents: .TouchUpInside)
         outerLeftMenuButton.hidden = true
         self.addSubview(outerLeftMenuButton)
         
-        outerRightMenuButton.frame = CGRectMake(0, 0, self.frame.size.height, self.frame.size.height)
+        outerRightMenuButton.frame = CGRectMake(0, 0, buttonSize, buttonSize)
         outerRightMenuButton.center = CGPointMake(self.frame.size.width/2, self.frame.size.height/2)
-        outerRightMenuButton.setImage(UIImage(named: "Soundcloud"), forState: .Normal)
-        outerRightMenuButton.addTarget(self, action: "buttonsPressed:", forControlEvents: UIControlEvents.TouchUpInside)
+        outerRightMenuButton.setBackgroundImage(UIImage(named: "Soundcloud"), forState: .Normal)
+        outerRightMenuButton.addTarget(self, action: "buttonsPressed:", forControlEvents: .TouchUpInside)
         outerRightMenuButton.hidden = true
         self.addSubview(outerRightMenuButton)
         
-        menuButton.frame = CGRectMake(0, 0, self.frame.size.height, self.frame.size.height)
+        menuButton.frame = CGRectMake(0, 0, buttonSize, buttonSize)
         menuButton.center = CGPointMake(self.frame.size.width/2, self.frame.size.height/2)
-        menuButton.setImage(UIImage(named: "Plus"), forState: .Normal)
-        menuButton.addTarget(self, action: "menuButtonPressed", forControlEvents: UIControlEvents.TouchUpInside)
+        menuButton.setBackgroundImage(UIImage(named: "Plus"), forState: .Normal)
+        menuButton.addTarget(self, action: "menuButtonPressed", forControlEvents: .TouchUpInside)
         self.addSubview(menuButton)
+    }
+    
+    // MARK: Miscellaneous Button Actions
+    
+    func buttonsPressed(sender: UIButton){
+        menuButtonPressed()
+        
+        if (sender == leftMenuButton){
+            delegate?.buttonTwoAction!()
+        }
+        else if (sender == rightMenuButton){
+            delegate?.buttonThreeAction!()
+        }
+        else if (sender == outerLeftMenuButton){
+            delegate?.buttonOneAction!()
+        }
+        else if (sender == outerRightMenuButton){
+            delegate?.buttonFourAction!()
+        }
+        
     }
     
     // MARK: Main Menu Button
@@ -124,6 +162,7 @@ class AWPopOutMenu: UIView {
         UIView.animateWithDuration(0.3, animations: { () -> Void in
             if (self.menuPressed){
                 self.frame = CGRectMake(self.screenSize.width/2-25, self.frame.origin.y, self.frame.size.height, self.frame.size.height)
+                self.center = self.centerPosition
                 
                 self.mainMenuRotation(self.menuButton)
                 
@@ -154,30 +193,9 @@ class AWPopOutMenu: UIView {
         })
     }
     
-    // MARK: Miscellaneous Button Actions
-    
-    func buttonsPressed(sender: UIButton){
-        menuButtonPressed()
-        
-        if (sender == leftMenuButton){
-            NSLog("Left Menu Button Pressed")
-        }
-        else if (sender == rightMenuButton){
-            NSLog("Right Menu Button Pressed")
-        }
-        else if (sender == outerLeftMenuButton){
-            NSLog("Outer Left Menu Button Pressed")
-        }
-        else if (sender == outerRightMenuButton){
-            NSLog("Outer Right Menu Button Pressed")
-        }
-        
-    }
-
-    
     // MARK: Menu Activity Status
     
-    func getMenuStatus() -> Bool{
+    func getMenuStatus() -> Bool {
         return menuPressed
     }
     
@@ -185,7 +203,7 @@ class AWPopOutMenu: UIView {
     
     func mainMenuRotation(sender: UIButton){
         // Keep the main button in the center of the view
-        sender.center = CGPointMake(self.frame.size.width/2, self.frame.size.height/2)
+        sender.center.x = self.frame.size.width/2
         
         // Turn the "Plus" image into an "X" image
         var rotation = CGFloat(M_PI_4 * 7.0)
@@ -195,7 +213,7 @@ class AWPopOutMenu: UIView {
             rotation = CGFloat(M_PI_4 * 8.0)
         }
         
-        UIView.animateKeyframesWithDuration(0.5, delay: 0.0, options: UIViewKeyframeAnimationOptions.CalculationModePaced, animations: { () -> Void in
+        UIView.animateKeyframesWithDuration(0.5, delay: 0.0, options: .CalculationModePaced, animations: { () -> Void in
             UIView.addKeyframeWithRelativeStartTime(0, relativeDuration: 0, animations: {
                 sender.transform = CGAffineTransformMakeRotation(1/5 * rotation)
             })

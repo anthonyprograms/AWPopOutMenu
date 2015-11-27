@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AWPopOutMenu.swift"
-            timestampString = "455655092.862544"
+            timestampString = "470270367.854532"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "16"
-            endingLineNumber = "16"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
             landmarkName = "AWPopOutMenu"
             landmarkType = "3">
          </BreakpointContent>
